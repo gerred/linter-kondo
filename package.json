@@ -1,15 +1,16 @@
 {
-  "name": "linter-joker",
+  "name": "linter-kondo",
   "main": "./index.js",
   "version": "4.1.0",
-  "description": "An Atom Linter package for joker (Clojure, ClojureScript)",
+  "description": "An Atom Linter package for clj-kondo (Clojure, ClojureScript)",
   "keywords": [
     "linter",
-    "joker",
+    "kondo",
+    "clj-kondo",
     "clojure",
     "clojurescript"
   ],
-  "repository": "https://github.com/rgdelato/linter-joker",
+  "repository": "https://github.com/gerred/linter-kondo",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
@@ -30,17 +31,17 @@
     "language-clojure"
   ],
   "configSchema": {
-    "jokerExecutablePath": {
-      "title": "Joker path",
-      "description": "Path to the `joker` executable",
+    "kondoExecutablePath": {
+      "title": "clj-kondo path",
+      "description": "Path to the `cljkondo` executable",
       "type": "string",
-      "default": "joker"
+      "default": "clj-kondo"
     },
     "lintsOnChange": {
       "title": "Lints on change",
       "description": "When disabled, only lints files on save",
       "type": "boolean",
-      "default": "true"
+      "default": true
     }
   }
 }

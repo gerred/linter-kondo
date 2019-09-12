@@ -3,19 +3,19 @@
 import { CompositeDisposable } from "atom";
 import { dirname } from "path";
 
-const linterName = "linter-joker";
-let jokerExecutablePath;
+const linterName = "linter-kondo";
+let kondoExecutablePath;
 let lintsOnChange;
 
 export default {
   activate() {
-    require("atom-package-deps").install("linter-joker");
+    require("atom-package-deps").install("linter-kondo");
 
     this.subscriptions = new CompositeDisposable();
 
     this.subscriptions.add(
-      atom.config.observe(`${linterName}.jokerExecutablePath`, value => {
-        jokerExecutablePath = value;
+      atom.config.observe(`${linterName}.kondoExecutablePath`, value => {
+        kondoExecutablePath = value;
       })
     );
 
@@ -34,7 +34,7 @@ export default {
     const helpers = require("atom-linter");
 
     return {
-      name: "joker",
+      name: "linter-kondo",
       scope: "file", // or 'project'
       lintsOnChange: lintsOnChange,
       grammarScopes: ["source.clojure"],
@@ -43,44 +43,31 @@ export default {
         const editorText = textEditor.getText();
         const [extension] = editorPath.match(/\.\w+$/gi) || [];
 
-        // console.log("linter-joker: file extension", extension);
-
-        const command =
-          extension === ".clj"
-            ? "--lintclj"
-            : extension === ".cljs"
-              ? "--lintcljs"
-              : extension === ".edn" || extension === ".joker"
-                ? "--lintedn"
-                : extension === ".joke" ? "--lintjoker" : "--lintclj";
+        const command = "--lint";
 
         return helpers
-          .exec(jokerExecutablePath, [command, "-"], {
+          .exec(kondoExecutablePath, [command, "-"], {
             cwd: dirname(editorPath),
             uniqueKey: linterName,
             stdin: editorText,
             stream: "both"
           })
-          .then(function(data) {
+          .then(function(data, err) {
             if (!data) {
-              // console.log("linter-joker: process killed", data);
               return null;
             }
 
             const { exitCode, stdout, stderr } = data;
 
-            // console.log("linter-joker: data", data);
-
-            if (exitCode === 1 && stderr) {
+            if (exitCode !== 0 && stdout) {
               const regex = /[^:]+:(\d+):(\d+): ([\s\S]+)/;
 
-              const messages = stderr
+              const messages = stdout
                 .split(/[\r\n]+/)
-                .map(function(joke) {
-                  const exec = regex.exec(joke);
+                .map(function(lint) {
+                  const exec = regex.exec(lint);
 
                   if (!exec) {
-                    // console.log("linter-joker: failed exec", joke);
                     return null;
                   }
 
@@ -88,7 +75,7 @@ export default {
                   const excerpt = exec[3];
 
                   return {
-                    severity: excerpt.startsWith("Parse warning:")
+                    severity: excerpt.startsWith("warning:")
                       ? "warning"
                       : "error",
                     location: {
@@ -99,8 +86,6 @@ export default {
                   };
                 })
                 .filter(m => m); // filter out null messages
-
-              // console.log("linter-joker: messages", messages);
 
               return messages;
             }

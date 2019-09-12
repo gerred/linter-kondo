@@ -1,11 +1,11 @@
-# linter-joker package
+# linter-kondo plugin
 
-This linter plugin for Linter provides an interface to [joker](https://github.com/candid82/joker). It will be used with files that have the "Clojure" syntax.
+This linter plugin for Linter provides an interface to [clj-kondo](https://github.com/borkdude/clj-kondo). It will be used with files that have the "Clojure" syntax. Heavily adapted from the [linter-kondo](https://github.com/rgdelato/linter-joker) plugin by Ryan De La Torre.
 
 ## Installation
 
-Before using this package you will need to have [joker](https://github.com/candid82/joker) installed and available from your `$PATH`. Joker version __v0.9.7__ or greater is required. You can download it [here](https://github.com/candid82/joker/releases) or install it via Homebrew with:
+Before using this package you will need to have [clj-kondo](https://github.com/borkdude/clj-kondo) installed and available from your `$PATH`. This package is tested on the `2018.08.21-alpha` and later versions of clj-kondo.
 
 ```
-brew install candid82/brew/joker
+brew install borkdude/brew/clj-kondo
 ```
