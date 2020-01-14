@@ -43,9 +43,7 @@ export default {
         const editorText = textEditor.getText();
         const [extension] = editorPath.match(/\.\w+$/gi) || [];
 
-        const args = ["--lint"];
-        args.push(`--lang ${extension}`);
-        args.push("-");
+        const args = ["--lint", `--lang ${extension}`, "-"];
 
         return helpers
           .exec(kondoExecutablePath, args, {
