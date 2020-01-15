@@ -43,10 +43,10 @@ export default {
         const editorText = textEditor.getText();
         const [extension] = editorPath.match(/\.\w+$/gi) || [];
 
-        const command = "--lint";
+        const args = ["--lint", `--lang ${extension}`, "-"];
 
         return helpers
-          .exec(kondoExecutablePath, [command, "-"], {
+          .exec(kondoExecutablePath, args, {
             cwd: dirname(editorPath),
             uniqueKey: linterName,
             stdin: editorText,
