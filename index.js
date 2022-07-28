@@ -59,7 +59,7 @@ export default {
 
             const { exitCode, stdout, stderr } = data;
 
-            if (exitCode !== 0 && stdout) {
+            if (stdout) {
               const regex = /[^:]+:(\d+):(\d+): ([\s\S]+)/;
 
               const messages = stdout
@@ -75,9 +75,7 @@ export default {
                   const excerpt = exec[3];
 
                   return {
-                    severity: excerpt.startsWith("warning:")
-                      ? "warning"
-                      : "error",
+                    severity: excerpt.split(":")[0],
                     location: {
                       file: editorPath,
                       position: helpers.generateRange(textEditor, line - 1)
