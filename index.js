@@ -71,14 +71,15 @@ export default {
                     return null;
                   }
 
-                  const line = Number(exec[1]);
+                  const line = Number(exec[1]) - 1;
+                  const column = Number(exec[2]) - 1;
                   const excerpt = exec[3];
 
                   return {
                     severity: excerpt.split(":")[0],
                     location: {
                       file: editorPath,
-                      position: helpers.generateRange(textEditor, line - 1)
+                      position: helpers.generateRange(textEditor, line, column)
                     },
                     excerpt: `${excerpt}`
                   };
