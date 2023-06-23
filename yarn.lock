@@ -12,21 +12,10 @@ atom-linter@^10.0.0:
     sb-promisify "^2.0.1"
     tmp "~0.0.28"
 
-atom-package-deps@^4.6.0:
-  version "4.6.2"
-  resolved "https://registry.yarnpkg.com/atom-package-deps/-/atom-package-deps-4.6.2.tgz#9976ecd6d137bf8c8b24859edf319c2dd0e76b4d"
-  integrity sha512-GOcCULZPzpcFfnHo9Oz5fT/EaArFHNs84E4rp/Nox0/GlS1UYkEF44FRdgD+7TxAudRfQAXE0a8wh0GealCXZg==
-  dependencies:
-    atom-package-path "^1.1.0"
-    sb-fs "^3.0.0"
-    semver "^5.3.0"
-
-atom-package-path@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/atom-package-path/-/atom-package-path-1.1.0.tgz#b51fedbc00e7c8ce5223d0d803db7a3f4f69614f"
-  integrity sha1-tR/tvADnyM5SI9DYA9t6P09pYU8=
-  dependencies:
-    sb-callsite "^1.1.2"
+atom-package-deps@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/atom-package-deps/-/atom-package-deps-8.0.0.tgz#6eb49ae8cb42ff14b6e437366f6b1fa7d9feb997"
+  integrity sha512-TSY6WX4+QbMK9r6iCY99hNW+9vW7SF0zGHfnMLgiinMj5VR5MNQIhU+2pVXqIbGWnl32uqBAKB+iBztUV0ssyg==
 
 consistent-env@^1.2.0:
   version "1.3.1"
@@ -34,11 +23,6 @@ consistent-env@^1.2.0:
   integrity sha1-9oI018afxt2WVviuI0Kc4EmbZfs=
   dependencies:
     lodash.uniq "^4.5.0"
-
-is-utf8@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
-  integrity sha1-Sw2hRCEE0bM2NA6AeX6GXPOffXI=
 
 lodash.uniq@^4.5.0:
   version "4.5.0"
@@ -55,11 +39,6 @@ os-tmpdir@~1.0.2:
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
   integrity sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
 
-sb-callsite@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/sb-callsite/-/sb-callsite-1.1.2.tgz#28191fb66d64e3a3ee92084a95a90fcb5102243b"
-  integrity sha1-KBkftm1k46PukghKlakPy1ECJDs=
-
 sb-exec@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/sb-exec/-/sb-exec-4.0.0.tgz#46747f0df162626c16ebf0fea42245ad1aa859ca"
@@ -68,14 +47,6 @@ sb-exec@^4.0.0:
     consistent-env "^1.2.0"
     lodash.uniq "^4.5.0"
     sb-npm-path "^2.0.0"
-
-sb-fs@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/sb-fs/-/sb-fs-3.0.0.tgz#fbdcdd3010e80a1b8e27490cef336064974203b8"
-  integrity sha1-+9zdMBDoChuOJ0kM7zNgZJdCA7g=
-  dependencies:
-    sb-promisify "^2.0.1"
-    strip-bom-buf "^1.0.0"
 
 sb-memoize@^1.0.2:
   version "1.0.2"
@@ -94,18 +65,6 @@ sb-promisify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/sb-promisify/-/sb-promisify-2.0.2.tgz#4277a54754488aa9675d886e354db894c9bdc981"
   integrity sha1-QnelR1RIiqlnXYhuNU24lMm9yYE=
-
-semver@^5.3.0:
-  version "5.7.1"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
-  integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
-
-strip-bom-buf@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/strip-bom-buf/-/strip-bom-buf-1.0.0.tgz#1cb45aaf57530f4caf86c7f75179d2c9a51dd572"
-  integrity sha1-HLRar1dTD0yvhsf3UXnSyaUd1XI=
-  dependencies:
-    is-utf8 "^0.2.1"
 
 tmp@~0.0.28:
   version "0.0.33"
